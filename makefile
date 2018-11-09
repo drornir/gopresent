@@ -1,5 +1,5 @@
 SERVER_SOURCE_DIR=./src/server
-SERVER_BINARY_DIR=./bin/
+SERVER_BINARY_DIR=./bin
 SERVER_BINARY_NAME=gopresent
 SERVER_BINARY_PATH=$(SERVER_BINARY_DIR)/$(SERVER_BINARY_NAME)
 
@@ -16,6 +16,6 @@ build-client:
 clean: 
 	git rm $(SERVER_BINARY_PATH) $(CLIENT_BINARY_PATH)
 run: all
-	./$(SERVER_BINARY_PATH)
+	$(SERVER_BINARY_PATH)
 deps:
 	go get ./...
