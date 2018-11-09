@@ -1,0 +1,21 @@
+SERVER_SOURCE_DIR=./src/server
+SERVER_BINARY_DIR=./bin/
+SERVER_BINARY_NAME=gopresent
+SERVER_BINARY_PATH=$(SERVER_BINARY_DIR)/$(SERVER_BINARY_NAME)
+
+CLIENT_SOURCE_DIR=./src/client
+CLIENT_BINARY_DIR=./public
+CLIENT_BINARY_NAME=main.wasm
+CLIENT_BINARY_PATH=$(CLIENT_BINARY_DIR)/$(CLIENT_BINARY_NAME)
+
+all: build-client build-server
+build-server:
+	go build -o $(SERVER_BINARY_PATH) $(SERVER_SOURCE_DIR)
+build-client: 
+	GOOS=js GOARCH=wasm go build -o $(CLIENT_BINARY_PATH) $(CLIENT_SOURCE_DIR)
+clean: 
+	git rm $(SERVER_BINARY_PATH) $(CLIENT_BINARY_PATH)
+run: all
+	./$(SERVER_BINARY_PATH)
+deps:
+	go get ./...
