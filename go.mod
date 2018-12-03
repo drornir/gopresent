@@ -1,3 +1,8 @@
 module github.com/drornir/gopresent
 
-require github.com/dennwc/dom v0.2.1 // indirect
+require (
+	github.com/dennwc/dom v0.2.1
+	github.com/jroimartin/gocui v0.4.0
+	github.com/mattn/go-runewidth v0.0.3 // indirect
+	github.com/nsf/termbox-go v0.0.0-20181027232701-60ab7e3d12ed // indirect
+)
